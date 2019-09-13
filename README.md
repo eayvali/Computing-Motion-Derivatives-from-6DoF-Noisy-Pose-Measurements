@@ -9,10 +9,10 @@ The estimation of translational and rotational derivatives are decoupled, and th
 
 
 **Pseudocode:**
-The pseudocode is provided below.𝑀𝑜𝑡𝑖𝑜𝑛𝑅𝑒𝑔𝑟𝑒𝑠𝑠𝑖𝑜𝑛6𝐷 implementation is identical to [1]. There are ambiguities with the quaternion notation in [1], which inherits the notation from one of its references. The implementation of 𝑆𝑝𝑎𝑡𝑖𝑎𝑙𝑅𝑜𝑡𝑎𝑡𝑖𝑜𝑛𝐷𝑒𝑟𝑖𝑣𝑎𝑡𝑖𝑣𝑒𝑠 and 𝐵𝑜𝑑𝑦𝐷𝑒𝑟𝑖𝑣𝑎𝑡𝑖𝑣𝑒𝑠 follows the notation below.
- 
+The pseudocode is provided below.𝑀𝑜𝑡𝑖𝑜𝑛𝑅𝑒𝑔𝑟𝑒𝑠𝑠𝑖𝑜𝑛6𝐷 implementation is identical to [1]. 
 ![pseudocode](./figs/pseudocode.png)
 
+There are ambiguities with the quaternion notation in [1], which inherits the notation from one of its references. The implementation of 𝑆𝑝𝑎𝑡𝑖𝑎𝑙𝑅𝑜𝑡𝑎𝑡𝑖𝑜𝑛𝐷𝑒𝑟𝑖𝑣𝑎𝑡𝑖𝑣𝑒𝑠 and 𝐵𝑜𝑑𝑦𝐷𝑒𝑟𝑖𝑣𝑎𝑡𝑖𝑣𝑒𝑠 follows the notation below.
 Additionally, I included an option to preprocess the pose measurements. If you set PREPROCESSING=True, the position and quaternion measurements are averaged over a sliding window. The implementation of quaternion averaging is described here[2].
 For smoothing position, it's better to use [this](https://docs.scipy.org/doc/scipy-0.16.1/reference/generated/scipy.signal.savgol_filter.html) to get a smooth interpolation.
 ![computations](./figs/computations.png)
