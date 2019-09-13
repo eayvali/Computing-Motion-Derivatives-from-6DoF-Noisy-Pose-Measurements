@@ -19,7 +19,7 @@ For smoothing position, it's better to use [this](https://docs.scipy.org/doc/sci
 
 
 **Notes:**
-A substantial amount of papers have ambigious rotation/attitude representations especially when using quaternions. A rotation operation can be active and rotate a vector or be passive and rotate only point of view via frame transformation. The equations can differ depending on order of cpmponents and right/left handedness of the coordinate systems.
+A substantial amount of papers have ambigious rotation/attitude representations especially when using quaternions. A rotation operation can be active and rotate a vector or be passive and rotate only point of view via frame transformation. The equations can differ depending on order of the components and the right/left handedness of the coordinate systems.
 I recommend reading [3].
 
 **Files:**
@@ -27,6 +27,7 @@ I recommend reading [3].
 * /Vel_Acc_Estimation_from_Pose.py :  standalone main python script 
 
 **References:** 
+
 _[1]_ Sittel, Florian, Joerg Mueller, and Wolfram Burgard.Computing velocities and accelerations from a pose time sequence in three-dimensional space. Technical Report 272, University of Freiburg, Department of Computer Science, 2013.
 
 _[2]_  Markley, F. Landis, et al. "Averaging quaternions." Journal of Guidance, Control, and Dynamics 30.4 (2007): 1193-1197.
