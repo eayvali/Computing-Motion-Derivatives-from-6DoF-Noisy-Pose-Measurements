@@ -10,7 +10,7 @@ Computing velocities and accelerations from a pose time sequence in
 three-dimensional space. Technical Report 272, University of
 Freiburg, Department of Computer Science, 2013.
 *There are ambiguities with the quaternion notation used in this paper.
-Thw implementation here follows [3]. 
+The implementation here follows [3]. 
 
 [2]Quaternion averaging implementation:
 Markley, F. Landis, et al. "Averaging quaternions."
