@@ -311,19 +311,22 @@ quat_regression_np=np.asarray(quat_regression)
 
 #-------------Plot Results------------------------------#
 plt.figure(figsize=(15,5))
-plt.plot(time_seq[sample_min:sample_max],pos[sample_min:sample_max,0], 'r*')
-plt.plot(time_seq[sample_min:sample_max],pos[sample_min:sample_max,1], 'g*')
-plt.plot(time_seq[sample_min:sample_max],pos[sample_min:sample_max,2], 'b*')
+plt.grid()
 if PREPROCESSING:
-    plt.plot(filter_time_np[sample_min:sample_max],pos_filtered_np[sample_min:sample_max,0], 'k-')
-    plt.plot(filter_time_np[sample_min:sample_max],pos_filtered_np[sample_min:sample_max,1], 'k-')
-    plt.plot(filter_time_np[sample_min:sample_max],pos_filtered_np[sample_min:sample_max,2], 'k-')
+    plt.plot(filter_time_np[sample_min:sample_max],pos_filtered_np[sample_min:sample_max,0], 'k+')
+    plt.plot(filter_time_np[sample_min:sample_max],pos_filtered_np[sample_min:sample_max,1], 'k+')
+    plt.plot(filter_time_np[sample_min:sample_max],pos_filtered_np[sample_min:sample_max,2], 'k+')
     plt.title('Position Filtered')
 else:
     plt.title('Position')   
+plt.plot(time_seq[sample_min:sample_max],pos[sample_min:sample_max,0], 'r-')
+plt.plot(time_seq[sample_min:sample_max],pos[sample_min:sample_max,1], 'g-')
+plt.plot(time_seq[sample_min:sample_max],pos[sample_min:sample_max,2], 'b-')
+
 
 
 plt.figure(figsize=(15,5))
+plt.grid()
 plt.plot(regression_time_np[sample_min:sample_max],vel_world_np[sample_min:sample_max,0], 'r-')
 plt.plot(regression_time_np[sample_min:sample_max],vel_world_np[sample_min:sample_max,1], 'g-')
 plt.plot(regression_time_np[sample_min:sample_max],vel_world_np[sample_min:sample_max,2], 'b-')
@@ -339,12 +342,14 @@ plt.title('Estimated linear acceleration in world frame')
 
 
 plt.figure(figsize=(15,5))
+plt.grid()
 plt.plot(regression_time_np[sample_min:sample_max],vel_np[sample_min:sample_max,0], 'r-')
 plt.plot(regression_time_np[sample_min:sample_max],vel_np[sample_min:sample_max,1], 'g-')
 plt.plot(regression_time_np[sample_min:sample_max],vel_np[sample_min:sample_max,2], 'b-')
 plt.title('Estimated linear velocity in body frame')
 
 plt.figure(figsize=(15,5))
+plt.grid()
 plt.plot(regression_time_np[sample_min:sample_max],acc_np[sample_min:sample_max,0], 'r-')
 plt.plot(regression_time_np[sample_min:sample_max],acc_np[sample_min:sample_max,1], 'g-')
 plt.plot(regression_time_np[sample_min:sample_max],acc_np[sample_min:sample_max,2], 'b-')
@@ -353,29 +358,33 @@ plt.title('Estimated linear acceleration in body frame')
 
 
 plt.figure(figsize=(15,5))
-plt.plot(time_seq[sample_min:sample_max],quat[sample_min:sample_max,0], 'r*')
-plt.plot(time_seq[sample_min:sample_max],quat[sample_min:sample_max,1], 'g*')
-plt.plot(time_seq[sample_min:sample_max],quat[sample_min:sample_max,2], 'b*')
-plt.plot(time_seq[sample_min:sample_max],quat[sample_min:sample_max,3], 'k*')
+plt.grid()
 if PREPROCESSING:
-    plt.plot(filter_time_np[sample_min:sample_max],quat_filtered_np[sample_min:sample_max,0], 'k-')
-    plt.plot(filter_time_np[sample_min:sample_max],quat_filtered_np[sample_min:sample_max,1], 'k-')
-    plt.plot(filter_time_np[sample_min:sample_max],quat_filtered_np[sample_min:sample_max,2], 'k-')
-    plt.plot(filter_time_np[sample_min:sample_max],quat_filtered_np[sample_min:sample_max,3], 'k-')
+    plt.plot(filter_time_np[sample_min:sample_max],quat_filtered_np[sample_min:sample_max,0], 'k+')
+    plt.plot(filter_time_np[sample_min:sample_max],quat_filtered_np[sample_min:sample_max,1], 'k+')
+    plt.plot(filter_time_np[sample_min:sample_max],quat_filtered_np[sample_min:sample_max,2], 'k+')
+    plt.plot(filter_time_np[sample_min:sample_max],quat_filtered_np[sample_min:sample_max,3], 'k+')
     plt.title('Quaternion Filtered')
 else:
     plt.title('Quaternion')
+plt.plot(time_seq[sample_min:sample_max],quat[sample_min:sample_max,0], 'r-')
+plt.plot(time_seq[sample_min:sample_max],quat[sample_min:sample_max,1], 'g-')
+plt.plot(time_seq[sample_min:sample_max],quat[sample_min:sample_max,2], 'b-')
+plt.plot(time_seq[sample_min:sample_max],quat[sample_min:sample_max,3], 'k-')
+
 
 plt.figure(figsize=(15,5))
-plt.plot(regression_time_np[sample_min:sample_max],vel_np[sample_min:sample_max,3], 'r*')
-plt.plot(regression_time_np[sample_min:sample_max],vel_np[sample_min:sample_max,4], 'g*')
-plt.plot(regression_time_np[sample_min:sample_max],vel_np[sample_min:sample_max,5], 'b*')
-plt.plot(time_seq[sample_min:sample_max],w_GT[sample_min:sample_max,0], 'k-')
-plt.plot(time_seq[sample_min:sample_max],w_GT[sample_min:sample_max,1], 'k-')
-plt.plot(time_seq[sample_min:sample_max],w_GT[sample_min:sample_max,2], 'k-')
+plt.grid()
+plt.plot(time_seq[sample_min:sample_max],w_GT[sample_min:sample_max,0], 'k+')
+plt.plot(time_seq[sample_min:sample_max],w_GT[sample_min:sample_max,1], 'k+')
+plt.plot(time_seq[sample_min:sample_max],w_GT[sample_min:sample_max,2], 'k+')
+plt.plot(regression_time_np[sample_min:sample_max],vel_np[sample_min:sample_max,3], 'r-')
+plt.plot(regression_time_np[sample_min:sample_max],vel_np[sample_min:sample_max,4], 'g-')
+plt.plot(regression_time_np[sample_min:sample_max],vel_np[sample_min:sample_max,5], 'b-')
 plt.title('Estimated angular velocity in body frame vs GT')
 
 plt.figure(figsize=(15,5))
+plt.grid()
 plt.plot(regression_time_np[sample_min:sample_max],vel_world_np[sample_min:sample_max,3], 'r-')
 plt.plot(regression_time_np[sample_min:sample_max],vel_world_np[sample_min:sample_max,4], 'g-')
 plt.plot(regression_time_np[sample_min:sample_max],vel_world_np[sample_min:sample_max,5], 'b-')
@@ -383,6 +392,7 @@ plt.title('Estimated angular velocity in world frame')
 
 
 plt.figure(figsize=(15,5))
+plt.grid()
 plt.plot(regression_time_np[sample_min:sample_max],acc_np[sample_min:sample_max,3], 'r-')
 plt.plot(regression_time_np[sample_min:sample_max],acc_np[sample_min:sample_max,4], 'g-')
 plt.plot(regression_time_np[sample_min:sample_max],acc_np[sample_min:sample_max,5], 'b-')
@@ -390,6 +400,7 @@ plt.title('Estimated angular acceleration in body frame')
 
 
 plt.figure(figsize=(15,5))
+plt.grid()
 plt.plot(regression_time_np[sample_min:sample_max],acc_world_np[sample_min:sample_max,3], 'r-')
 plt.plot(regression_time_np[sample_min:sample_max],acc_world_np[sample_min:sample_max,4], 'g-')
 plt.plot(regression_time_np[sample_min:sample_max],acc_world_np[sample_min:sample_max,5], 'b-')
@@ -421,26 +432,28 @@ pos_rtr_np=np.asarray(pos_rtr_save)
 time_rtr_np=np.asarray(time_rtr_save)
 
 plt.figure(figsize=(15,5))
-plt.plot(time_seq[sample_min:sample_max],pos[sample_min:sample_max,0], 'r*')
-plt.plot(time_seq[sample_min:sample_max],pos[sample_min:sample_max,1], 'g*')
-plt.plot(time_seq[sample_min:sample_max],pos[sample_min:sample_max,2], 'b*')
-plt.plot(time_rtr_np[sample_min:sample_max],pos_rtr_world_np[sample_min:sample_max,0], 'k-')
-plt.plot(time_rtr_np[sample_min:sample_max],pos_rtr_world_np[sample_min:sample_max,1], 'k-')
-plt.plot(time_rtr_np[sample_min:sample_max],pos_rtr_world_np[sample_min:sample_max,2], 'k-')  
+plt.grid()
+plt.plot(time_rtr_np[sample_min:sample_max],pos_rtr_world_np[sample_min:sample_max,0], 'k+')
+plt.plot(time_rtr_np[sample_min:sample_max],pos_rtr_world_np[sample_min:sample_max,1], 'k+')
+plt.plot(time_rtr_np[sample_min:sample_max],pos_rtr_world_np[sample_min:sample_max,2], 'k+')  
+plt.plot(time_seq[sample_min:sample_max],pos[sample_min:sample_max,0], 'r-')
+plt.plot(time_seq[sample_min:sample_max],pos[sample_min:sample_max,1], 'g-')
+plt.plot(time_seq[sample_min:sample_max],pos[sample_min:sample_max,2], 'b-')
 if PREPROCESSING:
-    plt.title('Position Filtered vs Integrated Position in World Frame')
+    plt.title('Position Filtered vs Integrated ' + r'$\Delta p_{rtr}$'+' Position in World Frame')
 else:
-    plt.title('Position vs Integrated Position in World Frame')
+    plt.title('Position vs Integrated ' +r'$\Delta p_{rtr}$'+ ' Position in World Frame')
 
 
 plt.figure(figsize=(15,5))
+plt.grid()
 plt.plot(time_rtr_np[sample_min:sample_max],pos_rtr_np[sample_min:sample_max,0], 'r-')
 plt.plot(time_rtr_np[sample_min:sample_max],pos_rtr_np[sample_min:sample_max,1], 'g-')
 plt.plot(time_rtr_np[sample_min:sample_max],pos_rtr_np[sample_min:sample_max,2], 'b-') 
 
 if PREPROCESSING:
-    plt.title('Integrated Filtered Position in Body Frame')
+    plt.title('Integrated Filtered ' + r'$\Delta p_{rtr}$'+'in Body Frame')
 else:
-    plt.title('Integrated Position in Body Frame')
+    plt.title('Integrated ' + r'$\Delta p_{rtr}$'+'in Body Frame')
 
 
