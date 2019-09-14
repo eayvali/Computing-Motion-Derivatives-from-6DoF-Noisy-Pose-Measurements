@@ -22,6 +22,12 @@ For smoothing position, it's better to use [this](https://docs.scipy.org/doc/sci
 A substantial amount of papers have ambigious rotation/attitude representations especially when using quaternions. A rotation operation can be active and rotate a vector or be passive and rotate only point of view via frame transformation. The equations can differ depending on order of the components and the right/left handedness of the coordinate systems.
 I recommend reading [3].
 
+**Example:**
+
+Below are the some of the plots from the example in the code. The position input was generated as a sinusoidal in all dimensions.   Note that if we integrate the incremantal rtr motion and transform it to the world frame, it matches with the original input as expected. The quaternion and ground truth for angular velocity in body frame were obtained using the code in [this](https://github.com/eayvali/Integrating-Rigid-Body-Rotations) repository. You can also see that the estimated angualr velocity aligns with ground truth.
+
+![example](./figs/example.png)
+
 **Files:**
 * /code/test_data.mat : Test data containing quaternion and position measurements
 * /Vel_Acc_Estimation_from_Pose.py :  standalone main python script 
