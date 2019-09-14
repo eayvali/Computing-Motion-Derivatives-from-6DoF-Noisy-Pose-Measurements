@@ -1,8 +1,6 @@
 ## Computing Motion Derivatives from 6DoF Noisy Pose Measurements
 
-Generating ground truth 6DoF pose, velocity and acceleration data is crucial to verify many algorithms in robotics. This repository implements [1] with some modification to estimate translational and angular velocity and acceleration from a given sequence of pose measurements.
-The rotation is represented as a unit quaternion. The implementation assumes constant rotational and translational acceleration in body coordinates.
-The estimation of translational and rotational derivatives are decoupled, and the motion curve is approximated as a three step motion: half rotation, translation and half rotation as shown below.
+Generating ground truth 6DoF pose, velocity and acceleration data is crucial to verify many algorithms in robotics. This repository implements [1] with some modification to estimate translational and angular velocity and acceleration from a given sequence of pose measurements. The rotation is represented as a unit quaternion. The implementation assumes constant rotational and translational acceleration in body coordinates. The estimation of translational and rotational derivatives are decoupled, and the motion curve is approximated as a three step motion: half rotation, translation and half rotation as shown below.
 
 
 ![rtr_motion](./figs/rtr_motion.png)
@@ -12,8 +10,7 @@ The estimation of translational and rotational derivatives are decoupled, and th
 The pseudocode is provided below.𝑀𝑜𝑡𝑖𝑜𝑛𝑅𝑒𝑔𝑟𝑒𝑠𝑠𝑖𝑜𝑛6𝐷 implementation is identical to [1]. 
 ![pseudocode](./figs/pseudocode.png)
 
-There are ambiguities with the quaternion notation in [1], which inherits the notation from one of its references. The implementation of 𝑆𝑝𝑎𝑡𝑖𝑎𝑙𝑅𝑜𝑡𝑎𝑡𝑖𝑜𝑛𝐷𝑒𝑟𝑖𝑣𝑎𝑡𝑖𝑣𝑒𝑠 and 𝐵𝑜𝑑𝑦𝐷𝑒𝑟𝑖𝑣𝑎𝑡𝑖𝑣𝑒𝑠 follows the notation below.
-Additionally, I included an option to preprocess the pose measurements. If you set PREPROCESSING=True, the position and quaternion measurements are averaged over a sliding window. The implementation of quaternion averaging is described here[2].
+There are ambiguities with the quaternion notation in [1], which inherits the notation from one of its references. The implementation of 𝑆𝑝𝑎𝑡𝑖𝑎𝑙𝑅𝑜𝑡𝑎𝑡𝑖𝑜𝑛𝐷𝑒𝑟𝑖𝑣𝑎𝑡𝑖𝑣𝑒𝑠 and 𝐵𝑜𝑑𝑦𝐷𝑒𝑟𝑖𝑣𝑎𝑡𝑖𝑣𝑒𝑠 follows the notation below. Superscript B denotes body frame, S denotes spatial(world) frame. Additionally, I included an option to preprocess the pose measurements. If you set PREPROCESSING=True, the position and quaternion measurements are averaged over a sliding window. The implementation of quaternion averaging is described here[2].
 For smoothing position, it's better to use [this](https://docs.scipy.org/doc/scipy-0.16.1/reference/generated/scipy.signal.savgol_filter.html) to get a smooth interpolation.
 ![computations](./figs/computations.png)
 
@@ -24,7 +21,7 @@ I recommend reading [3].
 
 **Example:**
 
-Below are the some of the plots from the example in the code. The position input was generated as a sinusoidal in all dimensions.   Note that if we integrate the incremental rtr motion and transform it to the world frame, it matches with the original input as expected. The quaternion and ground truth for angular velocity in body frame were obtained using the code in [this](https://github.com/eayvali/Integrating-Rigid-Body-Rotations) repository. You can also see that the estimated angualr velocity aligns with ground truth.
+Below are some of the plots from the example in the code. The position input was generated from a sinusoidal.   Note that if we integrate the incremental rtr motion and transform it to the world frame, it matches with the original input as expected. The quaternion and ground truth for angular velocity in body frame were obtained using the code in [this](https://github.com/eayvali/Integrating-Rigid-Body-Rotations) repository. You can also see that the estimated angular velocity aligns with the ground truth.
 
 ![example](./figs/example.png)
 
