@@ -1,6 +1,6 @@
 ## Computing Motion Derivatives from 6DoF Noisy Pose Measurements
 
-Generating ground truth 6DoF pose, velocity and acceleration data is crucial to verify many algorithms in robotics. This repository implements [1] with some modification to estimate translational and angular velocity and acceleration from a given sequence of pose measurements. The rotation is represented as a unit quaternion. The implementation assumes constant rotational and translational acceleration in body coordinates. The estimation of translational and rotational derivatives are decoupled, and the motion curve is approximated as a three step motion: half rotation, translation and half rotation as shown below.
+Generating ground truth 6DoF pose, velocity, and acceleration data is crucial to verify many algorithms in robotics. This repository implements [1] with some modification to estimate translational and angular velocity and acceleration from a given sequence of pose measurements. The rotation is represented as a unit quaternion. The implementation assumes constant rotational and translational acceleration in body coordinates. The estimation of translational and rotational derivatives are decoupled, and the motion curve is approximated as a three step motion: half rotation, translation and half rotation as shown below.
 
 
 ![rtr_motion](./figs/rtr_motion.png)
@@ -16,7 +16,7 @@ For smoothing position, it's better to use [this](https://docs.scipy.org/doc/sci
 
 
 **Notes:**
-A substantial amount of papers have ambigious rotation/attitude representations especially when using quaternions. A rotation operation can be active and rotate a vector or be passive and rotate only point of view via frame transformation. The equations can differ depending on order of the components and the right/left handedness of the coordinate systems.
+A substantial amount of papers have ambiguous rotation/altitude representations especially when using quaternions. A rotation operation can be active and rotate a vector or be passive and rotate only point of view via frame transformation. The equations can differ depending on order of the components and the right/left handedness of the coordinate systems.
 I recommend reading [3].
 
 **Example:**
